@@ -8,7 +8,7 @@ library(tidyr)
 library(ggplot2)
 library(beepr)
 
-ramsey_data_24 <- st_read("shp_plan_regonal_parcels_2024",layer="Parcels2024Ramsey")
+ramsey_data_24 <- st_read("../vacant_land_st_paul/shp_plan_regonal_parcels_2024", layer = "Parcels2024Ramsey")
 names(ramsey_data_24)
 st_paul_24 <- subset(ramsey_data_24, CTU_NAME %in% c("Saint Paul"))
 
@@ -233,3 +233,5 @@ ggplot(plot_data, aes(x = compliance, y = required_fee)) +
   ) +
   theme_minimal(base_size = 14)
 
+
+csv <- subset(st_paul_24, ANUMBER == "499" & ST_NAME == "Snelling")
